@@ -1,4 +1,4 @@
-import CartWidget from "../cartWidget/CartWidget"
+import CartWidget from "../cartWidget/CartWidget.jsx"
 import beFreeIcon  from './assets/beFreeIcon.png'
 
 const NavBar = () =>{
