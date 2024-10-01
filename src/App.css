@@ -1,8 +1,11 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
   text-align: center;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
 }
 
 .logo {
@@ -39,4 +42,20 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.navBar{
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  background-color: rgb(250, 228, 200);
+}
+
+.logo{
+  width: 5%;
+  padding: 0;
+  object-fit: contain;
 }
