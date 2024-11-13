@@ -1,18 +1,22 @@
 import { useState } from "react"
 import { Button } from "react-bootstrap"
+import { useCart } from '../context/cartContext'
 
-const ItemCount = ({initial, stock, onAdd}) => {
-    const [cantidad, setCantidad] = useState(initial)
+const ItemCount = ({detail}) => {
+    const [cantidad, setCantidad] = useState(1)
+    const {cart, addToCart} = useCart()
 
     const increment = () => {
-        if(cantidad + 1 <= stock)
+        if(cantidad + 1 <= detail?.stock)
             setCantidad(cantidad+1)
     }
 
     const decrement = () => {
-        if(cantidad - 1 >= initial)
+        if(cantidad - 1 >= 1)
             setCantidad(cantidad-1)
     }
+
+    const handleAddToCart = () => addToCart({...detail,quantity:cantidad})
 
     return (
     <div>
@@ -21,7 +25,7 @@ const ItemCount = ({initial, stock, onAdd}) => {
             <p>{cantidad}</p>
             <Button onClick={decrement}>-</Button>
         </div>
-        <Button onClick={() => onAdd(cantidad)} disabled={!stock}>Add to cart</Button>
+        <Button onClick={handleAddToCart} disabled={!detail?.stock}>Add to cart</Button>
     </div>
   )  
 }

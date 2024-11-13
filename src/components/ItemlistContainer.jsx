@@ -1,24 +1,23 @@
-import ItemList from '../ItemList/ItemList.jsx'
+import ItemList from './ItemList.jsx'
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
-
+import Loader from './Loader.jsx'
+import {getProducts, getProductsByCat} from '../firebase/db.js'
 const ItemListContainer = () => {
    const [productos, setProductos] = useState([])
    const { cat } = useParams()
 
     useEffect(() => {
-         const url = 'https://dummyjson.com/products'
-         const urlCat = `https://dummyjson.com/products/category/${cat}`
-
-         fetch(cat? urlCat : url)
-         .then(res => res.json())
-         .then(res => setProductos(res.products))
+         if(cat)
+            getProductsByCat(cat).then(res=>setProductos(res))
+         else
+            getProducts().then(res => setProductos(res))
     },[cat])
 
    return (
       <div className='listContainer'>
          <h2 className='slogan'>BeFree. Ponete lo que quieras.</h2>
-         <ItemList prods={productos}/>  
+         {productos.length>0 ? <ItemList prods={productos}/> : <Loader />}  
       </div>
    ) 
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import CartWidget from "../cartWidget/CartWidget.jsx"
+import CartWidget from "../CartWidget.jsx"
 import beFreeIcon  from './assets/beFreeIcon.png'
 import { Navbar, Nav, Container } from "react-bootstrap"
 
@@ -21,7 +21,9 @@ const NavBar = () =>{
                     <Nav.Link as={Link} to="/category/mens-shoes" className="mx-3">Zapatos</Nav.Link>
                     <Nav.Link as={Link} to="/category/mens-watches" className="mx-3">Relojes</Nav.Link>
                     <Nav.Link as={Link} to="/category/sunglasses" className="mx-3">Lentes</Nav.Link>
-                    <CartWidget />
+                    <Link to="/Cart" className="d-flex align-items-center cartLink">
+                        <CartWidget />
+                    </Link>
                 </Nav>
             </Navbar.Collapse>
             </Container>

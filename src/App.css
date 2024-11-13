@@ -108,3 +108,24 @@ button:focus-visible {
 .row{
   margin: 0 auto;
 }
+
+.cartProductImage{
+  width: 150px;
+}
+
+.finalForm {
+  margin: 15px auto;
+}
+
+.loaderDetailCont{
+  margin: 150px auto;
+  width: 60%;
+}
+
+.detailContainer{
+  padding: 150px;
+}
+
+.cartLink{
+  color:#1a1a1a;
+}

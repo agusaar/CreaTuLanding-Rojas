@@ -1,4 +1,4 @@
-import Item from "../Item/Item"
+import Item from "./Item"
 import { Col, Container, Row } from "react-bootstrap"
 
 const ItemList = ({prods}) => {
