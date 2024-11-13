@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom"
 
 const CheckoutForm = ({cart,getTotal,clearCart}) => {
     const navigate = useNavigate()
-    
-    const handleSubmit = (e) =>{
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const [name,mail,numero] = e.target
         
@@ -19,17 +19,19 @@ const CheckoutForm = ({cart,getTotal,clearCart}) => {
             total: getTotal()
         }
 
-        let id = createOrder(order)
-        Swal.fire({
-            title: "Compra exitosa!",
-            text: `Le llegaran al mail detalles de su compra con id: ${id}`,
-            icon: "success"
-          });
         e.target[0].value=""
         e.target[1].value=""
         e.target[2].value=""
         clearCart()
         navigate("/")
+        
+        let ref = await createOrder(order)
+        Swal.fire({
+            title: "Compra exitosa!",
+            text: `Le llegaran al mail detalles de su compra con id: ${ref.id}`,
+            icon: "success"
+          });
+        
     }
 
     return (

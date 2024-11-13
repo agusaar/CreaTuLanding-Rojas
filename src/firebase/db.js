@@ -42,6 +42,7 @@ export const getProductById = async (id) => {
 export const createOrder = async (order) => {
     try{
         const docRef = await addDoc(collection(db, "orders"), order);
+        return docRef
     }
     catch(e){
         console.log(e)
