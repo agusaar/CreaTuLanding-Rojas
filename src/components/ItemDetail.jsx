@@ -13,7 +13,12 @@ const ItemDetail = ({product}) => {
         </Carousel>
         <h4 className='price'>${product?.price}</h4>
         <p className='prodDescription'>{product?.description}</p>
-        {(product.stock>0)?<ItemCount detail={product} />:<h6>Momentáneamente no contamos con stock del producto</h6>}
+        {(product.stock>0)?
+        <ItemCount detail={product} />:
+        <div className='noStock'>
+            <h6>Momentáneamente no contamos con stock del producto</h6>
+        </div>
+        }
         </>
     )
 }

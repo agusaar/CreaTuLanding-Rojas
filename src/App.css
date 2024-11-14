@@ -129,3 +129,14 @@ button:focus-visible {
 .cartLink{
   color:#1a1a1a;
 }
+
+.noStock{
+  margin: 15px auto;
+}
+
+.totalContainer{
+  display: flex;
+  margin: 10px auto;
+  justify-content: space-around;
+  width: 60%
+}
